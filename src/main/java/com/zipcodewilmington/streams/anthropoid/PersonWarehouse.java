@@ -83,14 +83,12 @@ public final class PersonWarehouse implements Iterable<Person> {
         return people.stream().collect(Collectors.toMap(Person::getPersonalId, Person::getName));
     }
 
-
     /**
      * @return Stream of Stream of Aliases
      */ // TODO
     public Stream<Stream<String>> getNestedAliases() {
         return null;
     }
-
 
     /**
      * @return Stream of all Aliases
