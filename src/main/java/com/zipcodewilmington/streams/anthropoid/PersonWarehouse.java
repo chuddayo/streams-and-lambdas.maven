@@ -48,7 +48,11 @@ public final class PersonWarehouse implements Iterable<Person> {
      * @return list of uniquely named Person objects
      */ //TODO
     public Stream<Person> getUniquelyNamedPeople() {
-        return people.stream().filter(distinctByKey(Person::getName));
+        HashSet<String> uniqueNames = new HashSet<>();
+        return people.stream().filter(p -> uniqueNames.add(p.getName()));
+
+        //return people.stream().filter(distinctByKey(Person::getName));
+
         // below also works but changes order
 //        return people.stream()
 //                .collect(Collectors.toMap(Person::getName, Function.identity(),
