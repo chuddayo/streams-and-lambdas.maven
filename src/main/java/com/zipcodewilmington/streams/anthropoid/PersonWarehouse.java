@@ -52,12 +52,6 @@ public final class PersonWarehouse implements Iterable<Person> {
         return people.stream().filter(p -> uniqueNames.add(p.getName()));
 
         //return people.stream().filter(distinctByKey(Person::getName));
-
-        // below also works but changes order
-//        return people.stream()
-//                .collect(Collectors.toMap(Person::getName, Function.identity(),
-//                        (person1, person2) -> person1))
-//                .values().stream();
     }
     public static <T> Predicate<T> distinctByKey(Function<? super T, ?> keyExtractor) {
         Set<Object> seen = ConcurrentHashMap.newKeySet();
